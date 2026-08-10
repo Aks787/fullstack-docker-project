@@ -50,8 +50,8 @@ jobs:
     name: Docker Build
     runs-on: ubuntu-latest
     needs:
-      - build-backend
-      - build-frontend
+      - build-backend   # 🪓 Must match the exact job ID from above
+      - build-frontend  # 🪓 Must match the exact job ID from above
 
     steps:
       - name: Checkout repository
