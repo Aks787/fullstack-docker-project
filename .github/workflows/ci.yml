@@ -55,10 +55,13 @@ jobs:
     needs:
       - build-backend   # 🪓 Must match the exact job ID from above
       - build-frontend  # 🪓 Must match the exact job ID from above
-
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker images
-        run: docker compose build
+      - name: Build backend Docker image
+        run: docker build -t backend:latest ./backend
+
+      - name: Build frontend Docker image
+        run: docker build -t frontend:latest ./frontend
